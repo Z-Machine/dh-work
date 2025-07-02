@@ -5,6 +5,7 @@ global.d.ts
 tsconfig.json
 Crashes/
 logs/
+log.txt
 Server.log
 DBErrors.log
 *.conf.dist
