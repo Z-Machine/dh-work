@@ -4,7 +4,7 @@ import { isPositionInside } from "../../shared/polygon";
 import { CreateFlightMaster } from "./flight-master";
 import { CreateDecorativeMounts } from "./decorative-mount";
 
-const MOD_ID = "dh-tanaris.old-gadgetzan" as const;
+const MOD_ID = "dh-kalimdor" as const;
 
 function ProcessRemovals(remove: RemovalRegistry): void {
     // Phase out all instances of creature in Tanaris.
