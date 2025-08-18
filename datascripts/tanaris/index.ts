@@ -1,3 +1,5 @@
+import SetupCaliphScorpidsting from "./bandits/caliph-scorpidsting";
+import CreateWastewanderSpawns from "./bandits/pve-cave";
 import {
     GenerateTanarisCreatures,
     GenerateTanarisGameObjects,
@@ -17,5 +19,10 @@ export namespace Tanaris {
         Creatures: GenerateTanarisCreatures,
         GameObjects: GenerateTanarisGameObjects,
     };
-    export const Scripts = [NewGadgetzan, OldGadgetzan];
+    export const Scripts = [
+        NewGadgetzan,
+        OldGadgetzan,
+        SetupCaliphScorpidsting,
+        CreateWastewanderSpawns,
+    ];
 }
