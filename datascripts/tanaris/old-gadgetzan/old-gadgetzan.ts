@@ -1,3 +1,4 @@
+import type { CreatureTemplate } from "wow/wotlk/std/Creature/CreatureTemplate";
 import { std } from "wow/wotlk";
 import { Tanaris } from "..";
 import { isPositionInside } from "../../shared/polygon";
@@ -6,6 +7,7 @@ import { CreateDecorativeMounts } from "./decorative-mount";
 
 const MOD_ID = "dh-kalimdor" as const;
 
+// TODO: Can remove a loop here by checking templates in instances loop.
 function ProcessRemovals(remove: RemovalRegistry): void {
     // Phase out all instances of creature in Tanaris.
     remove.creature.forEach((id) => {
@@ -244,12 +246,6 @@ function FrontTrainers(): void {
         { map: 1, x: -7117.459473, y: -3785.818359, z: 8.695258, o: 3.217144 } // Alchemist Pestlezugg
     );
 
-    std.CreatureTemplates.load(Tanaris.Creatures.Sprinkle).Spawns.add(
-        MOD_ID,
-        "sprinkle-spawn",
-        { map: 1, x: -7118.411621, y: -3780.933105, z: 8.733742, o: 4.403097 } // Sprinkle
-    );
-
     std.CreatureTemplates.load(Tanaris.Creatures.Vizzklick).Spawns.add(
         MOD_ID,
         "vizzklick-spawn",
@@ -260,6 +256,29 @@ function FrontTrainers(): void {
         MOD_ID,
         "quinn-spawns",
         { map: 1, x: -7117.745117, y: -3774.123779, z: 8.798793, o: 3.539146 } // Quinn
+    );
+}
+
+function MoveQuestgiver(
+    questgiver: number,
+    position: TSPosition
+): CreatureTemplate {
+    const template = std.CreatureTemplates.load(questgiver);
+    template.Spawns.getIndex(0).PhaseMask.set(0).Position.set(position);
+
+    return template;
+}
+
+// For NPCs that are quest POIs that need to be moved instead of spawned.
+function QuestGivers(): void {
+    MoveQuestgiver(
+        Tanaris.Creatures.Sprinkle,
+        { map: 1, x: -7130.675293, y: -3767.755127, z: 8.71146, o: 0.906973 } // Sprinkle
+    );
+
+    MoveQuestgiver(
+        Tanaris.Creatures["Chief Engineer Bilgewhizzle"],
+        { map: 1, x: -7133.570801, y: -3764.895752, z: 8.790873, o: 0.573189 } // CE Bilgewhizzle
     );
 }
 
@@ -516,6 +535,7 @@ function OldGadgetzan(): void {
     Styleen();
     TownGuards();
     WantedPosters();
+    QuestGivers();
 }
 
 type RemovalType =
