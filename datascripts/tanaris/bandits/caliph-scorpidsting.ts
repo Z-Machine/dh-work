@@ -4,17 +4,17 @@ import { Tanaris } from "..";
 
 const MOD_ID = "dh-kalimdor" as const;
 
-const SpawnPosition: TSPosition = {
+const CaliphSpawn: TSPosition = {
     map: 1,
     x: -7588.043457,
     y: -4034.563232,
     z: -6.468433,
-    o: 0.528685,
+    o: 0.52,
 }; // SpawnPosition
 
-const PatrolPath: PatrolPosition[] = [
+const CaliphPatrol: PatrolPosition[] = [
     {
-        ...SpawnPosition,
+        ...CaliphSpawn,
         delay: 5 * 1000,
     },
     {
@@ -22,11 +22,11 @@ const PatrolPath: PatrolPosition[] = [
         x: -7574.276367,
         y: -4027.76709,
         z: -13.148903,
-        o: 5.943991,
+        o: 5.94,
         delay: 10 * 1000,
     }, // Patrol1
     {
-        ...SpawnPosition,
+        ...CaliphSpawn,
         delay: 2 * 1000,
     },
     {
@@ -34,7 +34,7 @@ const PatrolPath: PatrolPosition[] = [
         x: -7592.663086,
         y: -4036.835205,
         z: -4.728808,
-        o: 3.576025,
+        o: 3.57,
         delay: 5 * 1000,
     }, // Patrol2
 ];
@@ -62,10 +62,10 @@ function SetupCaliphScorpidsting(): void {
     CaliphScorpidsting.Spawns.add(
         MOD_ID,
         "caliph-scorpidsting-spawn",
-        { ...SpawnPosition, spawnTime: 10 * 60 },
+        { ...CaliphSpawn, spawnTime: 10 * 60 },
         (instance) => {
             instance.EquipmentID.set(1);
-            instance.PatrolPath.add("WALK", PatrolPath);
+            instance.PatrolPath.add("WALK", CaliphPatrol);
         }
     );
 
@@ -79,7 +79,7 @@ function SetupCaliphScorpidsting(): void {
                 x: -7575.802246,
                 y: -4031.540527,
                 z: -12.382648,
-                o: 0.41605,
+                o: 0.41,
                 spawnTime: 8.5 * 60,
             }, // Bodyguard1
             {
@@ -87,13 +87,12 @@ function SetupCaliphScorpidsting(): void {
                 x: -7577.757324,
                 y: -4025.444336,
                 z: -11.96297,
-                o: 5.792107,
+                o: 5.79,
                 spawnTime: 8.5 * 60,
             }, // Bodyguard2
         ],
         (instance) => {
             instance.EquipmentID.set(1);
-            instance.WanderDistance.set(0.2);
         }
     );
 }

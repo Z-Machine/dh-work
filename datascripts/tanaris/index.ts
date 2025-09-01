@@ -9,8 +9,11 @@ import OldGadgetzan from "./old-gadgetzan/old-gadgetzan";
 import { POLYGON } from "./polygons";
 import GadgetzanIntroQuests from "./quests/gadgetzan-intro";
 import HideTanarisQuests from "./quests/hidden";
+import TrollQuests from "./quests/trolls";
+import WastewaterQuests from "./quests/wastewander";
 import { Tanaris_Main } from "./tanaris";
 import { CREATURE, GOBJECT } from "./tanaris_ids";
+import { SetupInfectedTrolls } from "./trolls/village";
 
 export namespace Tanaris {
     export const Main = Tanaris_Main;
@@ -25,8 +28,11 @@ export namespace Tanaris {
         NewGadgetzan,
         OldGadgetzan,
         HideTanarisQuests,
-        GadgetzanIntroQuests,
         SetupCaliphScorpidsting,
+        SetupInfectedTrolls,
         CreateWastewanderSpawns,
+        GadgetzanIntroQuests,
+        WastewaterQuests,
+        TrollQuests,
     ];
 }

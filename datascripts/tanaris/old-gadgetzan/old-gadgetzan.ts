@@ -238,14 +238,6 @@ function GnomeCorner(): void {
 }
 
 function FrontTrainers(): void {
-    std.CreatureTemplates.load(
-        Tanaris.Creatures["Alchemist Pestlezugg"]
-    ).Spawns.add(
-        MOD_ID,
-        "pestlezugg-spawn",
-        { map: 1, x: -7117.459473, y: -3785.818359, z: 8.695258, o: 3.217144 } // Alchemist Pestlezugg
-    );
-
     std.CreatureTemplates.load(Tanaris.Creatures.Vizzklick).Spawns.add(
         MOD_ID,
         "vizzklick-spawn",
@@ -279,6 +271,11 @@ function QuestGivers(): void {
     MoveQuestgiver(
         Tanaris.Creatures["Chief Engineer Bilgewhizzle"],
         { map: 1, x: -7133.570801, y: -3764.895752, z: 8.790873, o: 0.573189 } // CE Bilgewhizzle
+    );
+
+    MoveQuestgiver(
+        Tanaris.Creatures["Alchemist Pestlezugg"],
+        { map: 1, x: -7117.459473, y: -3785.818359, z: 8.695258, o: 3.217144 } // Alchemist Pestlezugg
     );
 }
 
